@@ -1,7 +1,13 @@
 export default function returnHowManyArguments(...args) {
+<<<<<<< HEAD
 	let sum = 0;
-	for (arg of args){
+	for (var arg of args){
 	 sum += 1;
+=======
+	let total = 0;
+	for (arg of args){
+		total += arg;
+>>>>>>> 7b551d6963d87d63de74003d971c8101e5618296
 	}
 	return sum;
 }
