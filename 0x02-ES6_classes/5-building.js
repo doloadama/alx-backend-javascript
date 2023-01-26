@@ -1,5 +1,5 @@
 export default class Building{
-    constructor(sqft){
+    constructor (sqft){
         this._sqft = sqft;
     }
 
@@ -10,11 +10,4 @@ export default class Building{
     set sqft(val){
         this._sqft = val;
     }
-
-    
-
-
-
-
-
 }
