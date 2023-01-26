@@ -1,46 +1,34 @@
-export default class HolbertonCourse {
-  constructor(name, length, students) {
-    this.name = name;
-    this.length = length;
-    this.students = students;
+import Currency from './3-currency';
+
+export default class Pricing {
+  constructor(amount, currency) {
+    if (typeof amount !== 'number' || !(currency instanceof Currency)) throw new Error();
+    this._amount = amount;
+    this._currency = currency;
   }
 
-  /**
-   * Gets the name of this course.
-   */
-  get name() {
-    return this._name;
+  get amount() {
+    return this._amount;
   }
 
-  set name(val) {
-    if (typeof val !== 'string') {
-      throw new TypeError('Name must be a string');
-    }
-    this._name = val;
+  get currency() {
+    return this._currency;
   }
 
-  get length() {
-    return this._length;
+  set amount(val) {
+    this._amount = val;
   }
 
-  set length(val) {
-    if (typeof val !== 'number') {
-      throw new TypeError('Length must be a number');
-    }
-    this._length = val;
+  set currency(val) {
+    this._currency = val;
   }
 
-  get students() {
-    return this._students;
+  displayFullPrice() {
+    return `${this.amount} ${this.currency.name} (${this.currency.code})`;
   }
 
-  set students(val) {
-    if (!(val instanceof Array)) {
-      throw new TypeError('Students must be an array of strings');
-    }
-    if (!val.every((student) => typeof student === 'string')) {
-      throw new TypeError('Students must be an array of strings');
-    }
-    this._students = val;
+  static convertPrice(amount, conversionRate) {
+    if (typeof amount !== 'number' || typeof conversionRate !== 'number') throw new Error();
+    return amount * conversionRate;
   }
 }
