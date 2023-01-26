@@ -1,4 +1,4 @@
-export class HolbertonCourse {
+export default class HolbertonCourse {
   constructor(name, lenght, students) {
     if (typeof name !== 'string' || typeof lenght !== 'number' || typeof students !== 'string') throw new Error();
     this._name = name;
