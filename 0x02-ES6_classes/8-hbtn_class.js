@@ -19,6 +19,7 @@ export default class HolbertonClass {
   set location(val) {
     this._location = val;
   }
+  
   [Symbol.toPrimitive](hint) {
     if (hint === 'string') {
       return this._location;
