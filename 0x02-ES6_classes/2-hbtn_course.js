@@ -1,33 +1,32 @@
-export class HolbertonCourse{
+export class HolbertonCourse {
+  constructor(name, lenght, students) {
+    if (typeof name !== 'string' || typeof lenght !== 'number' || typeof students !== 'string') throw new Error();
+    this._name = name;
+    this._lenght = lenght;
+    this._students = students;
+  }
 
-    constructor(name, lenght, students){
-        if (typeof name !== 'string' || typeof lenght !== "number" || typeof students !== "string") throw new Error();
-        this._name = name;
-        this._lenght = lenght;
-        this._students = students;
-    }
+  get name() {
+    return this._name;
+  }
 
-    get name(){
-        return this._name;
-    }
+  set name(val) {
+    this._name = val;
+  }
 
-    set name(val){
-        this._name = val;
-    }
+  get lenght() {
+    return this._lenght;
+  }
 
-    get lenght(){
-        return this._lenght;
-    }
+  set lenght(val) {
+    this._lenght = val;
+  }
 
-    set lenght(val){
-        this._lenght = val;
-    }
+  get students() {
+    return this._students;
+  }
 
-    get students(){
-        return this._students;
-    }
-
-    set students(val){
-        this._students = val;
-    }
+  set students(val) {
+    this._students = val;
+  }
 }
