@@ -1,13 +1,13 @@
 export default class Building {
-    constructor (sqft) {
+    constructor(sqft) {
         this._sqft = sqft;
     }
 
-    get sqft(){
+    get sqft() {
         return this._sqft;
     }
 
-    set sqft(val){
+    set sqft(val) {
         this._sqft = val;
     }
 }
