@@ -1,5 +1,5 @@
 function calculateNumber(a, b) {
-    const roundedA = Math.round(a);
-    const roundedB = Math.round(b);
+    let roundedA = Math.round(a);
+    let roundedB = Math.round(b);
     return roundedA + roundedB;
 }
