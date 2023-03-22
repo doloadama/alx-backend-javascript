@@ -4,7 +4,7 @@ const calculateNumber = require('./2-calcul_chai.js');
 describe('calculateNumber', function() {
   describe('SUM operation', function() {
     it('should return the sum of two integers', function() {
-      expect(calculateNumber('SUM', 1.4, 4.5), 6);
+      expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6);
     });
   });
 
