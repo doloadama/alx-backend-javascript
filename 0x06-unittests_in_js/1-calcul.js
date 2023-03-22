@@ -12,6 +12,7 @@ function calculateNumber(type, a, b) {
             }
             return roundedA / roundedB;
         default:
+            return;
     }
 }
 module.exports = calculateNumber;
