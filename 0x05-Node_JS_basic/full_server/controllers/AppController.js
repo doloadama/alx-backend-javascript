@@ -7,6 +7,5 @@ class AppController {
     }
   }
   
-  export default AppController;
-  module.exports = AppController;
+module.exports = AppController;
   
