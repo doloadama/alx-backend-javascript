@@ -8,11 +8,11 @@ function calculateNumber(type, a, b) {
             return roundedA - roundedB;
         case "DIVIDE":
             if (roundedB === 0) {
-                return Error
+                return "Error";
             }
             return roundedA / roundedB;
         default:
-            return "Invalid type";
+            throw new Error("Invalid type");
     }
 }
 module.exports = calculateNumber;
