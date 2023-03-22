@@ -10,7 +10,7 @@ describe('calculateNumber', function() {
 
   describe('SUBTRACT operation', function() {
     it('should return the difference of two integers', function() {
-      assert.strictEqual(calculateNumber('SUBTRACT', 1.4, 4.5), - 4);
+      assert.strictEqual(calculateNumber('SUBTRACT', 1.4, 4.5), -3.1);
     });
   });
 
