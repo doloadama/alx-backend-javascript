@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const Utils = require('./utils');
+const Utils = require('../utils');
 
 describe('sendPaymentRequestToApi', function() {
     it('calls Utils.calculateNumber with the correct arguments', () => {
