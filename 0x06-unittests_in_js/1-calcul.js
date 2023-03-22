@@ -12,7 +12,7 @@ function calculateNumber(type, a, b) {
             }
             return roundedA / roundedB;
         default:
-            throw new Error("Invalid type");
+            throw new Error(`Invalid type: ${type}`);
     }
 }
 module.exports = calculateNumber;
