@@ -5,9 +5,7 @@ function calculateNumber(type, a, b) {
         case "SUM":
             return roundedA + roundedB;
         case "SUBSTRACT":
-            if (roundedB < roundedA)
-                return Error;
-            return roundedB - roundedA;
+            return roundedA - roundedB;
         case "DIVIDE":
             if (roundedB === 0) {
                 return Error
