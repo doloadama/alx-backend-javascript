@@ -1,10 +1,5 @@
 {
-    "name": "my-app",
-    "version": "1.0.0",
     "scripts": {
       "test": "mocha"
-    },
-    "devDependencies": {
-      "mocha": "^9.1.3"
     }
-  }
+}
