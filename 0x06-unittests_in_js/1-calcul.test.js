@@ -20,7 +20,7 @@ describe('calculateNumber', function() {
     });
 
     it('should return "Error" if the second number is 0', function() {
-      assert.Equal(calculateNumber('DIVIDE', 1.4, 0), 'Error');
+      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error');
     });
   });
 });
