@@ -9,10 +9,8 @@ describe('Testing numbers', () => {
     expect(2 === 2).to.be.true;
   });
 
-  it('1 is equal to 3', () => {
-    // This test is failing and needs to be fixed
-    // Skip for now and come back to it later
-    it.skip(expect(1 === 3).to.be.true);
+  it.skip('1 is equal to 3', () => {
+    expect(1 === 3).to.be.true;
   });
 
   it('3 is equal to 3', () => {
