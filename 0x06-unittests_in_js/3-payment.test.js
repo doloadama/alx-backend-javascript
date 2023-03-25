@@ -5,11 +5,11 @@ const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
   it('sendPaymentRequestToApi uses the calculateNumber method of Utils', () => {
-    const calculateNumberSpy = sinon.spy(Utils);
+    const Spy = sinon.spy(Utils);
 
     sendPaymentRequestToApi(100, 20);
-    expect(calculateNumberSpy.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
-    expect(calculateNumberSpy.calculateNumber.callCount).to.be.equal(1);
+    expect(Spy.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+    expect(Spy.calculateNumber.callCount).to.be.equal(1);
     bigBrother.calculateNumber.restore();
   });
 });
