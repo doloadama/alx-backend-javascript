@@ -24,7 +24,7 @@ function countStudents(path) {
 
       // Skip empty lines
       if (fields.length === 1 && fields[0].trim() === '') {
-        continue;
+      
       }
 
       // Loop through the fields and count the students in each field
@@ -33,7 +33,7 @@ function countStudents(path) {
 
         // Skip empty fields
         if (field === '') {
-          continue;
+        
         }
 
         // Increment the count for the field
