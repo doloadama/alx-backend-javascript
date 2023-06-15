@@ -8,14 +8,13 @@ process.stdin.on('data', (data) => {
   // Process the input
   const input = data.trim(); // Remove trailing newline character
 
-  // Display the user's name
-  console.log(`Your name is: ${input}`);
-  process.exit(0); // Exit the program with success status code
-
-  // Check if the user wants to end the program
+  // Check if the program is ending
   if (input.toLowerCase() === 'exit') {
     console.log('This important software is now closing');
     process.exit(0); // Exit the program with success status code
+  } else {
+    // Display the user's name
+    console.log(`Your name is: ${input}`);
   }
 });
 
