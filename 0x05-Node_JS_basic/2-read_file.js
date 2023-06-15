@@ -1,18 +1,68 @@
-process.stdin.setEncoding('utf8');
+const fs = require('fs');
 
-// Display initial message
-console.log('Welcome to Holberton School, what is your name?');
+function countStudents(path) {
+  try {
+    // Read the database file synchronously
+    const data = fs.readFileSync(path, 'utf8');
 
-// Listen for data on STDIN
-process.stdin.once('data', (data) => {
-  // Process the input
-  const input = data.trim(); // Remove trailing newline character
+    // Split the data into lines
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
 
-  // Display the user's name
-  console.log(`Your name is: ${input}`);
+    // Get the number of students
+    const numberOfStudents = lines.length - 1; // Exclude the header line
 
-  // Display closing message
-  console.log('This important software is now closing');
-});
+    // Log the number of students
+    console.log(`Number of students: ${numberOfStudents}`);
+
+    // Initialize an object to store the counts for each field
+    const fieldCounts = {};
+
+    // Loop through the lines and count the number of students in each field
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i];
+      const fields = line.split(',');
+
+      // Skip empty lines
+      if (fields.length === 1 && fields[0].trim() === '') {
+        continue;
+      }
+
+      // Loop through the fields and count the students in each field
+      for (let j = 1; j < fields.length; j++) {
+        const field = fields[j].trim();
+
+        // Skip empty fields
+        if (field === '') {
+          continue;
+        }
+
+        // Increment the count for the field
+        if (fieldCounts[field]) {
+          fieldCounts[field]++;
+        } else {
+          fieldCounts[field] = 1;
+        }
+      }
+    }
+
+    // Log the counts for each field
+    for (const field in fieldCounts) {
+      const count = fieldCounts[field];
+      const studentsList = lines
+        .slice(1) // Exclude the header line
+        .filter((line) => {
+          const fields = line.split(',');
+          return fields.includes(field);
+        })
+        .map((line) => line.split(',')[0].trim()) // Extract the firstname
+        .join(', ');
+
+      console.log(`Number of students in ${field}: ${count}. List: ${studentsList}`);
+    }
+  } catch (error) {
+    // Handle the error if the database file cannot be loaded
+    throw new Error('Cannot load the database');
+  }
+}
 
 module.exports = countStudents;
