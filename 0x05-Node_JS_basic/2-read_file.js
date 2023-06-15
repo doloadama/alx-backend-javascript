@@ -18,7 +18,7 @@ function countStudents(path) {
     const fieldCounts = {};
 
     // Loop through the lines and count the number of students in each field
-    for (let i = 1; i < lines.length; i++) {
+    for (let i = 1; i < lines.length; i += 1) {
       const line = lines[i];
       const fields = line.split(',');
 
@@ -28,7 +28,7 @@ function countStudents(path) {
       }
 
       // Loop through the fields and count the students in each field
-      for (let j = 1; j < fields.length; j++) {
+      for (let j = 1; j < fields.length; j += 1) {
         const field = fields[j].trim();
 
         // Skip empty fields
@@ -38,7 +38,7 @@ function countStudents(path) {
 
         // Increment the count for the field
         if (fieldCounts[field]) {
-          fieldCounts[field]++;
+          fieldCounts[field] += 1;
         } else {
           fieldCounts[field] = 1;
         }
@@ -47,17 +47,19 @@ function countStudents(path) {
 
     // Log the counts for each field
     for (const field in fieldCounts) {
-      const count = fieldCounts[field];
-      const studentsList = lines
-        .slice(1) // Exclude the header line
-        .filter((line) => {
-          const fields = line.split(',');
-          return fields.includes(field);
-        })
-        .map((line) => line.split(',')[0].trim()) // Extract the firstname
-        .join(', ');
+      if (Object.prototype.hasOwnProperty.call(fieldCounts, field)) {
+        const count = fieldCounts[field];
+        const studentsList = lines
+          .slice(1) // Exclude the header line
+          .filter((line) => {
+            const fields = line.split(',');
+            return fields.includes(field);
+          })
+          .map((line) => line.split(',')[0].trim()) // Extract the firstname
+          .join(', ');
 
-      console.log(`Number of students in ${field}: ${count}. List: ${studentsList}`);
+        console.log(`Number of students in ${field}: ${count}. List: ${studentsList}`);
+      }
     }
   } catch (error) {
     // Handle the error if the database file cannot be loaded
