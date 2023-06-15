@@ -11,6 +11,8 @@ process.stdin.once('data', (data) => {
   // Display the user's name
   console.log(`Your name is: ${input}`);
 
-  // Display closing message
-  console.log('This important software is now closing');
+});
+
+process.stdout.once('end', (data) => {
+  process.stdout.write('This important software is now closing\n');
 });
