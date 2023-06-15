@@ -4,7 +4,7 @@ process.stdin.on('readable', () => {
   const choix = process.stdin.read();
 
   if (choix) {
-    process.stdout.write(`Your name is: ${chunk}`);
+    process.stdout.write(`Your name is: ${choix}`);
   }
 });
 
