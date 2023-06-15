@@ -17,20 +17,19 @@ function countStudents(path) {
           const fields = line.split(',');
 
           if (fields.length === 1 && fields[0].trim() === '') {
+            // Skip empty lines
             continue;
           }
 
           for (let j = 1; j < fields.length; j += 1) {
             const field = fields[j].trim();
 
-            if (field === '') {
-              continue;
-            }
-
-            if (fieldCounts[field]) {
-              fieldCounts[field] += 1;
-            } else {
-              fieldCounts[field] = 1;
+            if (field !== '') {
+              if (fieldCounts[field]) {
+                fieldCounts[field] += 1;
+              } else {
+                fieldCounts[field] = 1;
+              }
             }
           }
         }
