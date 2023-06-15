@@ -16,7 +16,12 @@ process.stdin.on('data', (data) => {
     console.log('This important software is now closing');
     process.exit(0); // Exit the program with success status code
   }
+});
 
+// Listen for 'end' event on STDIN
+process.stdin.on('end', () => {
+  console.log('This important software is now closing');
+  process.exit(0); // Exit the program with success status code
 });
 
 // Resume the STDIN stream
