@@ -18,7 +18,7 @@ function countStudents(path) {
     const fieldCounts = {};
 
     // Loop through the lines and count the number of students in each field
-    for (let i = 1; i < lines.length; i = i + 1) {
+    for (let i = 1; i < lines.length; i++) {
       const line = lines[i];
       const fields = line.split(',');
 
@@ -28,7 +28,7 @@ function countStudents(path) {
       }
 
       // Loop through the fields and count the students in each field
-      for (let j = 1; j < fields.length; j = j + 1) {
+      for (let j = 1; j < fields.length; j++) {
         const field = fields[j].trim();
 
         // Skip empty fields
@@ -38,7 +38,7 @@ function countStudents(path) {
 
         // Increment the count for the field
         if (fieldCounts[field]) {
-          fieldCounts[field] = fieldCounts[field] + 1;
+          fieldCounts[field]++;
         } else {
           fieldCounts[field] = 1;
         }
