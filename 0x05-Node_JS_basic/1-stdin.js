@@ -17,8 +17,6 @@ process.stdin.on('data', (data) => {
     process.exit(0); // Exit the program with success status code
   }
 
-  // Prompt for another input
-  console.log('What is your name?');
 });
 
 // Resume the STDIN stream
