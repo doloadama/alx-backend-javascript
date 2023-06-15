@@ -1,45 +1,18 @@
-const fs = require('fs');
+process.stdin.setEncoding('utf8');
 
-function countStudents(path) {
-  try {
-    // Read the database file synchronously
-    const data = fs.readFileSync(path, 'utf8');
+// Display initial message
+console.log('Welcome to Holberton School, what is your name?');
 
-    // Split the data into lines
-    const lines = data.split('\n').filter((line) => line.trim() !== '');
+// Listen for data on STDIN
+process.stdin.once('data', (data) => {
+  // Process the input
+  const input = data.trim(); // Remove trailing newline character
 
-    // Get the number of students
-    const numberOfStudents = lines.length - 1; // Exclude the header line
+  // Display the user's name
+  console.log(`Your name is: ${input}`);
 
-    // Log the number of students
-    console.log(`Number of students: ${numberOfStudents}`);
-
-    // Loop through the fields and count the number of students in each field
-    const fields = lines[0].split(',');
-    for (let i = 0; i < fields.length; i++) {
-      const field = fields[i];
-      let count = 0;
-      const list = [];
-
-      // Loop through the student data and count the number of students in the field
-      for (let j = 1; j < lines.length; j++) {
-        const studentData = lines[j].split(',');
-        const fieldValue = studentData[i].trim();
-
-        // Check if the field value is not empty
-        if (fieldValue !== '') {
-          count++;
-          list.push(studentData[0].trim()); // Add the student's firstname to the list
-        }
-      }
-
-      // Log the number of students in the field and the list of firstnames
-      console.log(`Number of students in ${field}: ${count}. List: ${list.join(', ')}`);
-    }
-  } catch (error) {
-    // Handle the error if the database file cannot be loaded
-    console.error('Cannot load the database');
-  }
-}
+  // Display closing message
+  console.log('This important software is now closing');
+});
 
 module.exports = countStudents;
