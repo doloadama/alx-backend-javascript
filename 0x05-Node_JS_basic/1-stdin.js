@@ -10,6 +10,7 @@ process.stdin.on('data', (data) => {
 
   // Display the user's name
   console.log(`Your name is: ${input}`);
+  process.exit(0); // Exit the program with success status code
 
   // Check if the user wants to end the program
   if (input.toLowerCase() === 'exit') {
