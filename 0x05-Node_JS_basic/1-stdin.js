@@ -4,7 +4,7 @@ process.stdin.setEncoding('utf8');
 console.log('Welcome to Holberton School, what is your name?');
 
 // Listen for data on STDIN
-process.stdin.once('data', (data) => {
+process.stdin.on('data', (data) => {
   // Process the input
   const input = data.trim(); // Remove trailing newline character
 
@@ -13,6 +13,6 @@ process.stdin.once('data', (data) => {
 
 });
 
-process.stdout.once('end', (data) => {
+process.stdout.on('end', (data) => {
   process.stdout.write('This important software is now closing\n');
 });
