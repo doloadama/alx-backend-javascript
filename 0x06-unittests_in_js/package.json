@@ -5,6 +5,7 @@
       "dev": "npx babel-node",
       "test": "jest",
       "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+
     },
     "devDependencies": {
       "@babel/core": "^7.6.0",
