@@ -1,10 +1,9 @@
 const sinon = require('sinon');
-const Utils = require('./utils.js');
+const Utils = require('./utils');
 const { expect } = require('chai');
 const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
-  describe('calculateNumber', () => {
     it('should call the calculateNumber function from Utils', () => {
       const calculateNumberSpy = sinon.spy(Utils);
 
@@ -14,4 +13,3 @@ describe('sendPaymentRequestToApi', () => {
       calculateNumberSpy.calculateNumber.restore();
     });
   });
-});
