@@ -1,7 +1,5 @@
-// 0-calcul.js
-
 function calculateNumber(a, b) {
-  const roundedA = Math.round(a);
-  const roundedB = Math.round(b);
-  return roundedA + roundedB;
+  return Math.round(a) + Math.round(b);
 }
+
+module.exports = calculateNumber;
