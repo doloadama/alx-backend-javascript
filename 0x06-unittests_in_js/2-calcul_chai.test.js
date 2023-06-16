@@ -27,7 +27,7 @@ describe('calculateNumber', () => {
     });
 
     it('should return "Error" when roundedB is 0', () => {
-      expect(calculateNumber('DIVIDE', 1.4, 0).to.be.an('Error'));
+      expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
     });
   });
 });
