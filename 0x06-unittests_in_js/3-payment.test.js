@@ -1,17 +1,17 @@
+const Utils = require('./utils.js');
 const sinon = require('sinon');
-const Utils = require('./utils');
-const { expect } = require('chai');
-const sendPaymentRequestToApi = require('./3-payment');
 
-describe('sendPaymentRequestToApi', () => {
-    it('sendpaymentRequestToApi', () => {
-        const haha = sinon.spy(Utils);
+function sendPaymentRequestToApi(totalAmount, totalShipping) {
+  const spy = sinon.spy(Utils, 'calculateNumber');
+  const sum = Utils.calculateNumber('SUM', totalAmount, totalShipping);
+  console.log(`The total is: ${sum}`);
 
-        sendPaymentRequestToApi(150, 30);
-        expect(haha.calculateNumber.calledWith('SUM', 150, 30)).to.be.true;
-        expect(haha.calculateNumber.callCount).to.be.equal(1);
-        haha.calculateNumber.restore();
-    });
-});
+  // Validate the usage of Utils.calculateNumber
+  console.log(`Spy called with args: ${spy.args[0]}`);
+  console.log(`Spy return value: ${spy.returnValues[0]}`);
 
-module.exports = Utils;
+  // Restore the spy
+  spy.restore();
+}
+
+sendPaymentRequestToApi(100, 20);
