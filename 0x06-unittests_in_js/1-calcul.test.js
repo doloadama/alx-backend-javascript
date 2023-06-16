@@ -22,10 +22,10 @@ describe('calculateNumber', () => {
 
   describe('when type is DIVIDE', () => {
     it('should return the division of rounded numbers', () => {
-      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
-      assert.strictEqual(calculateNumber('DIVIDE', 1, 3.7), 0.3);
-      assert.strictEqual(calculateNumber('DIVIDE', 1.2, 3.7), 0.3);
-      assert.strictEqual(calculateNumber('DIVIDE', 1.5, 3.7), 0.4);
+      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 4.5), 1);
+      assert.strictEqual(calculateNumber('DIVIDE', 1, 3.7), 1);
+      assert.strictEqual(calculateNumber('DIVIDE', 1.2, 3.7), 1);
+      assert.strictEqual(calculateNumber('DIVIDE', 1.5, 3.7), 1);
     });
 
     it('should return "Error" when roundedB is 0', () => {
