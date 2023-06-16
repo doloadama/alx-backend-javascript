@@ -1,4 +1,4 @@
-const getPaymentTokenFromAPI = require('./6-payment_token.js');
+const getPaymentTokenFromAPI = require('./6-payment_token');
 
 describe('getPaymentTokenFromAPI', () => {
   it('should return a resolved promise with the correct data when success is true', (done) => {
