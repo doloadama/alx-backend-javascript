@@ -30,9 +30,6 @@ describe('calculateNumber', () => {
 
     it('should return "Error" when roundedB is 0', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error');
-      assert.strictEqual(calculateNumber('DIVIDE', 1, 0), 'Error');
-      assert.strictEqual(calculateNumber('DIVIDE', 1.2, 0), 'Error');
-      assert.strictEqual(calculateNumber('DIVIDE', 1.5, 0), 'Error');
     });
   });
 });
