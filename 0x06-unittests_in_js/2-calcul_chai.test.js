@@ -22,7 +22,7 @@ describe('calculateNumber', () => {
     it('should return the division of rounded numbers', () => {
       expect(calculateNumber('DIVIDE', 8, 2).to.equal(4));
       expect(calculateNumber('DIVIDE', 2, 2).to.equal(1));
-      expectstrictEqual(calculateNumber('DIVIDE', 7, 2).to.equal(3.5));
+      expect(calculateNumber('DIVIDE', 7, 2).to.equal(3.5));
       expect(calculateNumber('DIVIDE', -2, -2).to.equal(1));
     });
 
