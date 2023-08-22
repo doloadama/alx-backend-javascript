@@ -1,12 +1,16 @@
 const fs = require('fs');
+const readline = require('readline');
 
 function countStudents(path) {
     try {
-        const data = fs.readFileSync(path, 'utf8');
-        const lines = data.split('\n').filter(line => line !== ''); // Remove empty lines
+        const rl = readline.createInterface({
+            input: fs.createReadStream(path),
+            crlfDelay: Infinity
+        });
+
         const studentsByField = {};
 
-        for (const line of lines) {
+        rl.on('line', (line) => {
             const fields = line.split(',');
             const firstName = fields[0].trim();
             const field = fields[fields.length - 1].trim();
@@ -17,14 +21,19 @@ function countStudents(path) {
                 }
                 studentsByField[field].push(firstName);
             }
-        }
+        });
 
-        console.log(`Number of students: ${lines.length - 1}`);
-        
-        for (const field in studentsByField) {
-            const studentsList = studentsByField[field].join(', ');
-            console.log(`Number of students in ${field}: ${studentsByField[field].length}. List: ${studentsList}`);
-        }
+        rl.on('close', () => {
+            let totalStudents = 0;
+
+            for (const field in studentsByField) {
+                const studentsList = studentsByField[field].join(', ');
+                console.log(`Number of students in ${field}: ${studentsByField[field].length}. List: ${studentsList}`);
+                totalStudents += studentsByField[field].length;
+            }
+
+            console.log(`Number of students: ${totalStudents}`);
+        });
     } catch (error) {
         console.error('Cannot load the database');
     }
